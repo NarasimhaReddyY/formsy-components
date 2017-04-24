@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
-import Formsy from 'formsy-react';
+import { HOC } from 'formsy-react';
 import _ from 'lodash';
 
 class SelectBox extends Component {
 
+	constructor(props) {
+		super(props);
+	}
+
 	createOptionNode = (option, index) => {
 		return (
-			<option key={index} value={option.value}>{option.label}</option>
+			<option
+				key={index}
+			  value={option.value}
+			>
+			  {option.label}
+		  </option>
 		)
 	}
 
@@ -19,7 +28,11 @@ class SelectBox extends Component {
 
 	  return (
 			<div>
-				<select>
+				<select
+					name={this.props.name}
+					onChange={ event => this.props.setValue(event.currentTarget.value)}
+					value={this.props.getValue()}
+				>
 					{ optionNodes }
 				</select>
 	    </div>
@@ -27,4 +40,4 @@ class SelectBox extends Component {
 	}
 }
 
-export default SelectBox;
+export default HOC(SelectBox);
