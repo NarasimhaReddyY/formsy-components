@@ -15,6 +15,7 @@ const mapStateToProps = state => ({
   selected: state.selected,
   checked: state.checked,
   text: state.text,
+  slidebar: state.slidebar,
 })
 
 const mapDispatchToProps = dispatch => ({

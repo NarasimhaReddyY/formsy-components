@@ -1,7 +1,8 @@
 const initialState = {
 	selected: '',
-	checked: '',
-	text: ''
+	checked: false,
+	text: '',
+  slidebar: 0
 }
 
 export default function manageComponents(state = initialState, action) {
@@ -11,7 +12,8 @@ export default function manageComponents(state = initialState, action) {
   			state,
   			{selected: action.values.selectbox},
 				{text: action.values.textbox},
-				{checked: action.values.checkbox}
+				{checked: action.values.checkbox},
+        {slidebar: action.values.slidebar}
 			);
     default:
       return state;
